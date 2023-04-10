@@ -15,7 +15,7 @@ import lombok.Setter;
 /*user role id numeric not null
 user_id numeric not null
 role id numeric not null */
-public class User_Role {
+public class UserRole {
     private Long user_role_id;
 
     private Long user_id;
