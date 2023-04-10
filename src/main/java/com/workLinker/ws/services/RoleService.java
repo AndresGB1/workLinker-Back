@@ -15,7 +15,6 @@ public class RoleService {
     @Autowired
     private RoleRepository roleRepository;
 
-    //get, save, update, delete
     public List<Role> getAllRoles() {
         List<Role> roles = new ArrayList<>();
         roleRepository.findAll().forEach(roles::add);

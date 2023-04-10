@@ -15,7 +15,7 @@ import java.util.List;
 import com.workLinker.ws.model.Role;
 
 @RestController
-@RequestMapping("/ws/roles")
+@RequestMapping("/ws/role")
 public class RoleController {
 
     @Autowired
