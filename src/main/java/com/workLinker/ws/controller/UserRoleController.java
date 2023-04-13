@@ -16,7 +16,7 @@ import com.workLinker.ws.model.UserRole;
 
 @RestController
 @RequestMapping("/ws/UserRole")
-public class UserRoleController {
+public class    UserRoleController {
 
     @Autowired
     private UserRoleService UserRoleService;

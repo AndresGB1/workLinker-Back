@@ -30,13 +30,29 @@ public class UserService {
     }
 
     public User updateUser(Long id, User User) {
-        return UserRepository.save(User);
+        if (UserRepository.findById(id).isPresent()) {
+            User.setUser_id(id);
+
+            return UserRepository.save(User);
+        }
+        return null;
     }
 
     public void deleteUser(Long id) {
         UserRepository.deleteById(id);
     }
 
-    
-    
+
+    public User login(String email, String password) {
+        return UserRepository.findByEmailAndPassword(email, password);
+    }
+
+    public User inactiveUser(Long id) {
+        if (UserRepository.findById(id).isPresent()) {
+            User user = UserRepository.findById(id).get();
+            user.setIsActive(false);
+            return UserRepository.save(user);
+        }
+        return null;
+    }
 }

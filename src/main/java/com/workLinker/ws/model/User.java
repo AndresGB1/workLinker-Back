@@ -12,7 +12,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "user")
+@Table(name = "USER")
 @Getter
 @Setter
 public class User {
@@ -41,3 +41,18 @@ public class User {
     @Column(name = "user_description")
     private String userDescription;
 }
+/**
+
+ "user_id": 1,
+    "loginName": "admin",
+    "password": "admin",
+    "isActive": true,
+    "email": "admin@admin.com",
+    "fullName": "admin",
+    "phoneNumber": "123456789",
+    "country": "Vietnam",
+    "city": "Hanoi",
+    "address": "Hanoi",
+    "userDescription": "admin"
+
+ */

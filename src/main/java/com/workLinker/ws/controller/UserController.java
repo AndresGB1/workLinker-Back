@@ -1,16 +1,12 @@
 package com.workLinker.ws.controller;
 
+import com.workLinker.ws.model.UserRole;
+import com.workLinker.ws.services.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.workLinker.ws.services.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import java.util.List;
 import com.workLinker.ws.model.User;
 
@@ -20,7 +16,10 @@ public class UserController {
 
     @Autowired
     private UserService UserService;
-    
+
+    @Autowired
+    private UserRoleService UserRoleService;
+
 
     @GetMapping("/all")
     public List<User> getAllUsers() {
@@ -33,8 +32,13 @@ public class UserController {
     }
 
     @PostMapping("/add")
-    public User addUser(@RequestBody User User) {
-        return UserService.addUser(User);
+    public User addUser(@RequestBody User User, @RequestParam("role_id") Long roleId) {
+        User user = UserService.addUser(User);
+        UserRole userRole = new UserRole();
+        userRole.setRole_id(roleId);
+        userRole.setUser_id(user.getUser_id());
+        UserRoleService.addUserRole(userRole);
+        return user;
     }
 
     @PutMapping("/update/{id}")
@@ -46,5 +50,15 @@ public class UserController {
     public void deleteUser(@PathVariable Long id) {
         UserService.deleteUser(id);
     }
-    
+
+    @PostMapping("/login")
+    public User login(@RequestParam("email") String email, @RequestParam("password") String password) {
+        return UserService.login(email, password);
+    }
+
+    @PutMapping("/inactive/{id}")
+    public User inactiveUser(@PathVariable Long id) {
+        return UserService.inactiveUser(id);
+    }
+
 }
