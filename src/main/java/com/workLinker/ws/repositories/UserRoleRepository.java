@@ -6,5 +6,6 @@ import com.workLinker.ws.model.UserRole;
 
 
 public interface UserRoleRepository extends JpaRepository<UserRole, Long> {
+
     
 }

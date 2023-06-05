@@ -20,7 +20,4 @@ public class City {
     @JoinColumn(name = "country_id")
     private Country country;
 
-    // Otros campos y relaciones
-
-    // Agrega constructores, getters, setters y otros métodos necesarios
 }

@@ -19,6 +19,4 @@ public class Role {
 
     @Column(name = "role_description")
     private String roleDescription;
-
-    // Add constructors, getters, setters, and any other necessary methods
 }

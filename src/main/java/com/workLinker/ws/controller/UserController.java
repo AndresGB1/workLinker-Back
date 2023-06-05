@@ -61,4 +61,9 @@ public class UserController {
         return UserService.inactiveUser(id);
     }
 
+
+    @GetMapping("/findByRoleId")
+    public List<User> findByRoleId() {
+        return UserService.findByRoleId();
+    }
 }

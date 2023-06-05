@@ -16,7 +16,4 @@ public class Country {
     @Column(name = "name")
     private String name;
 
-    // Otros campos y relaciones
-
-    // Agrega constructores, getters, setters y otros métodos necesarios
 }

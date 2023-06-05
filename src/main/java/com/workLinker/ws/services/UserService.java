@@ -55,4 +55,9 @@ public class UserService {
         }
         return null;
     }
+
+    //findByRoleId
+    public List<User> findByRoleId() {
+        return UserRepository.findByRoleId();
+    }
 }
